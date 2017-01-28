@@ -1,16 +1,16 @@
-Introduction:
+## Introduction:
 
-ScreenSpy is cross-platform spyware that runs on MacOSX, Windows and Linux. Once started, the tool will record a user's screen and send images to a control server. An attacker can connect to the control server to see infected user's activities in real time.
+ScreenSpy is a tool written for the University of Illinois Computer Security Lab. It is cross-platform malware that runs on MacOSX, Windows and Linux. Once started, the tool will record a user's screen and send images to a control server. An attacker can connect to the control server to see infected user's activities in real time.
 
-Architecture:
+## Architecture:
 
 The tool is written in a cross platform language and only uses standard libraries to allow maximum portability.
 
-It uses a publicly available cloud server (eg: Amazon AWS) to enable the infected machine and attacker to operate on different networks with the central server acting as a point of contact. In other words, as long as both attacker and infected machine have access to Internet, they will be able to share screenshots.
+It uses a publicly available cloud server (eg: Amazon AWS) to enable the infected machine and attacker to operate on different networks with the central server acting as a point of contact.
 
 The tool also handles network outages gracefully. If the connection is dropped for whatever reason, the tool will attempt to reconnect after a well defined time interval. 
 
-Usage:
+## Usage:
 
 The control server needs to be installed on a globally accessible VM, such as Amazon AWS. It listens on port 8080 for incoming connections from infected clients and on port 8081 for incoming connections from the attacker.
 
@@ -42,11 +42,11 @@ To run the client
 
   java ScreenSpyReaderClient
 
-Future Additions:
+## Future Additions:
 
 Currently, ScreenSpy has a single point of failure since it requires a centralized server to run, in the future, someone could work on having a peer to peer network to transmit data instead.
 
-Currently, we assume that Java is installed on the infected machine, however this is not always true. Going forward, someone could work on writing a script that automatically downloads and installs Java in the background if it is not present.
+Currently, we assume that Java is installed on the infected machine, however this is not always true. Future improvements could include writing a script that automatically downloads and installs Java in the background if it is not present.
 
 
 
